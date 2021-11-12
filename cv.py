@@ -6,9 +6,9 @@ document = Document()
 document.add_picture('profile_pic.jpg', width=Inches(2.0))
 
 # Get input from the user
-name = input('What is your name?')
-phone_number = input('What is your phone number?')
-email = input('What is your email address?')
+name = input('What is your name? ')
+phone_number = input('What is your phone number? ')
+email = input('What is your email address? ')
 
 document.add_paragraph(
     name + ' | ' + phone_number + ' | ' + email)
@@ -39,7 +39,7 @@ p.add_run(experience_details)
 # More experiences
 while True:
     more_experience = input(
-        'Would you like to add more work experience? Yes or No')
+        'Would you like to add more work experience? Yes or No ')
 
     if more_experience.lower().strip() == 'yes':
         p = document.add_paragraph()
@@ -54,6 +54,25 @@ while True:
         experience_details = input('Describe your experience at ' + company)
 
         p.add_run(experience_details)
+
+    else:
+        break
+
+# Skills
+document.add_heading('Skills')
+skill = input('Enter a skill ')
+p = document.add_paragraph(skill)
+p.style = 'List Bullet'
+
+while True:
+    add_skills = input(
+        'Would you like to add some more skills to the CV? Yes or No ')
+
+    if add_skills.lower().strip() == 'yes':
+        skill = input('Enter a skill ')
+
+        p = document.add_paragraph(skill)
+        p.style = 'List Bullet'
 
     else:
         break
