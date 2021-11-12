@@ -36,4 +36,27 @@ experience_details = input('Describe your experience at ' + company)
 
 p.add_run(experience_details)
 
+# More experiences
+while True:
+    more_experience = input(
+        'Would you like to add more work experience? Yes or No')
+
+    if more_experience.lower().strip() == 'yes':
+        p = document.add_paragraph()
+
+        company = input('Enter company ')
+        from_date = input('From Date  ')
+        to_date = input('To Date ')
+
+        p.add_run(company + ' ').bold = True
+        p.add_run(from_date + '-' + to_date + '\n').italic = True
+
+        experience_details = input('Describe your experience at ' + company)
+
+        p.add_run(experience_details)
+
+    else:
+        break
+
+
 document.save('cv.docx')
